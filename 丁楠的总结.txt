@@ -16,3 +16,9 @@ transR基本思想如下图所示。对于每个三元组(h, r, t)，将实体�
 该论文很重视“知识图谱的高阶连通性”的重要性，认为自己提出的 知识图注意力网络（KGAT）有两点创新以解决“高阶建模问题”。
 （1）递归嵌入传播。根据节点的嵌入（embedding）更新邻居节点的嵌入，并且递归地执行这种传播，以捕获高阶连通性。
 （2）基于注意力的聚合。节点的嵌入在传播时，加上权重，以区分高阶连通性的重要性。
+
+
+2021.11.15
+一个epoch需要训练1小时  所以我暂时把命令改成的  --epoch 10
+python Main.py --model_type kgat --alg_type bi --dataset yelp2018 --regs [1e-5,1e-5] --layer_size [64,32,16] --embed_size 64 --lr 0.0001 --epoch 10 --verbose 50 --save_flag 1 --pretrain -1 --batch_size 1024 --node_dropout [0.1] --mess_dropout [0.1,0.1,0.1] --use_att True --use_kge True
+
